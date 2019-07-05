@@ -9,6 +9,8 @@ const forecast = require('./utils/forecast');
 
 const app = express();
 
+//running the port for heroku if it doesn't exist we will run the default 3000
+const port =process.env.PORT ||  3000;
 
 const publicPath = path.join(__dirname, '../public/');
 //express will always look for the folder named: views but we can rewrite it and rename it to say: templates
@@ -104,7 +106,7 @@ app.get('*', (req, res) => {
 
 
 
-app.listen(3000, () => {
-    console.log('server is up an runnin');
+app.listen(port, () => {
+    console.log('server is up an runnin' + port);
 });
 
